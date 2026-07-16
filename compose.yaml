@@ -1,0 +1,4 @@
+include:
+  - compose/infrastructure.yaml
+  - compose/monitoring.yaml
+  - compose/applications.yaml
