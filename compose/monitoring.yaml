@@ -32,7 +32,7 @@ services:
 
     networks:
       - monitoring
-
+      - proxy    
   prometheus:
     <<: *defaults
 
@@ -52,6 +52,7 @@ services:
 
     networks:
       - monitoring
+      - proxy
 
   cadvisor:
     <<: *defaults
@@ -76,6 +77,7 @@ services:
 
     networks:
       - monitoring
+      - proxy
 
   node-exporter:
     <<: *defaults
@@ -126,8 +128,12 @@ services:
 
     networks:
       - monitoring
+      - proxy
 
 networks:
 
   monitoring:
+    external: true
+
+  proxy:
     external: true

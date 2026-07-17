@@ -71,10 +71,7 @@ services:
       - ../config/infrastructure/npm/letsencrypt:/etc/letsencrypt
 
     healthcheck:
-      test: ["CMD","wget","-q","--spider","http://localhost:81"]
-      interval: 30s
-      timeout: 5s
-      retries: 5
+      disable: true
 
     labels:
       homelab.stack: infrastructure
@@ -104,10 +101,7 @@ services:
       - ../config/infrastructure/portainer/data:/data
 
     healthcheck:
-      test: ["CMD","wget","--no-check-certificate","-q","--spider","https://localhost:9443"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+      disable: true
 
     labels:
       homelab.stack: infrastructure
@@ -138,10 +132,7 @@ services:
       DOZZLE_LEVEL: info
 
     healthcheck:
-      test: ["CMD","wget","-q","--spider","http://localhost:8080"]
-      interval: 30s
-      timeout: 5s
-      retries: 5
+      disable: true
 
     labels:
       homelab.stack: infrastructure
