@@ -24,7 +24,7 @@ services:
     hostname: homepage
 
     env_file:
-      - .env
+      - ../.env
 
     ports:
       - "${HOMEPAGE_PORT}:3000"
@@ -59,7 +59,7 @@ services:
     hostname: npm
 
     env_file:
-      - .env
+      - ../.env
 
     ports:
       - "${NPM_HTTP_PORT}:80"
@@ -94,7 +94,7 @@ services:
     hostname: portainer
 
     env_file:
-      - .env
+      - ../.env
 
     ports:
       - "${PORTAINER_PORT}:9443"
@@ -126,7 +126,7 @@ services:
     hostname: dozzle
 
     env_file:
-      - .env
+      - ../.env
 
     ports:
       - "${DOZZLE_PORT}:8080"
