@@ -54,6 +54,24 @@ services:
       - monitoring
       - proxy
 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  graphite-exporter:
+    image: prom/graphite-exporter:latest
+    container_name: graphite-exporter
+    restart: unless-stopped
+    command:
+      - '--graphite.mapping-config=/etc/graphite-exporter/mapping.yml'
+    ports:
+      - "9108:9108"
+      - "9109:9109/tcp"
+      - "9109:9109/udp"
+    volumes:
+      - /opt/homelab/config/monitoring/graphite-exporter:/etc/graphite-exporter
+    networks:
+      - monitoring
+
   cadvisor:
     <<: *defaults
 
@@ -80,19 +98,13 @@ services:
       - proxy
 
   node-exporter:
-    <<: *defaults
-
-    image: prom/node-exporter:v1.9.1
-
+    image: prom/node-exporter:latest
     container_name: node-exporter
-
+    restart: unless-stopped
     network_mode: host
-
     pid: host
-
     command:
-      - '--path.rootfs=/host'
-
+      - --path.rootfs=/host
     volumes:
       - /:/host:ro,rslave
 
