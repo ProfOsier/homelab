@@ -150,31 +150,31 @@ services:
     networks:
       - infrastructure
 
-  watchtower:
-    <<: *defaults
+#  watchtower:
+#   <<: *defaults
 
-    image: containrrr/watchtower:latest
+#   image: containrrr/watchtower:latest
 
-    container_name: watchtower
+#   container_name: watchtower
 
-    hostname: watchtower
+#   hostname: watchtower
 
-    command:
-      - --cleanup
-      - --interval
-      - ${WATCHTOWER_INTERVAL}
-      - --label-enable
+ #   command:
+ #     - --cleanup
+ #    - --interval
+ #     - ${WATCHTOWER_INTERVAL}
+ #     - --label-enable
 
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+ #   volumes:
+  #    - /var/run/docker.sock:/var/run/docker.sock
 
-    labels:
-      com.centurylinklabs.watchtower.enable: "true"
-      homelab.stack: infrastructure
-      homelab.service: watchtower
+   # labels:
+    #  com.centurylinklabs.watchtower.enable: "true"
+     # homelab.stack: infrastructure
+     # homelab.service: watchtower
 
-    networks:
-      - infrastructure
+   # networks:
+    #  - infrastructure
 
 networks:
 

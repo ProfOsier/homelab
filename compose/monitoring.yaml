@@ -25,7 +25,7 @@ services:
       - "${GRAFANA_PORT}:3000"
 
     volumes:
-      - ./config/monitoring/grafana:/var/lib/grafana
+      - ../config/monitoring/grafana:/var/lib/grafana
 
     environment:
       GF_SERVER_ROOT_URL: https://grafana.osier.local
@@ -47,8 +47,8 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
 
     volumes:
-      - ./config/monitoring/prometheus:/etc/prometheus
-      - ./config/monitoring/prometheus-data:/prometheus
+      - ../config/monitoring/prometheus:/etc/prometheus
+      - ../config/monitoring/prometheus-data:/prometheus
 
     networks:
       - monitoring
@@ -105,7 +105,7 @@ services:
       - -config.file=/etc/loki/local-config.yaml
 
     volumes:
-      - ./config/monitoring/loki:/etc/loki
+      - ../config/monitoring/loki:/etc/loki
 
     networks:
       - monitoring
@@ -122,7 +122,7 @@ services:
 
     volumes:
       - /var/log:/var/log
-      - ./config/monitoring/promtail:/etc/promtail
+      - ../config/monitoring/promtail:/etc/promtail
 
     networks:
       - monitoring
