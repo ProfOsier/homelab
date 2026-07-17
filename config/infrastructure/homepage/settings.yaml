@@ -1,0 +1,28 @@
+title: Osier HomeLab
+
+background:
+  image: https://images.unsplash.com/photo-1518770660439-4636190af475
+  blur: sm
+  saturate: 50
+  brightness: 40
+  opacity: 40
+
+theme: dark
+color: slate
+
+layout:
+  Network:
+    style: row
+    columns: 4
+
+  Services:
+    style: row
+    columns: 4
+
+  Docker:
+    style: row
+    columns: 4
+
+  Monitoring:
+    style: row
+    columns: 4

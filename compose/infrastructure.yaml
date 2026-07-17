@@ -33,7 +33,7 @@ services:
       HOMEPAGE_ALLOWED_HOSTS: homepage.osier.local
 
     volumes:
-      - ../../config/infrastructure/homepage:/app/config
+      - ../config/infrastructure/homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
     healthcheck:
@@ -67,8 +67,8 @@ services:
       - "${NPM_ADMIN_PORT}:81"
 
     volumes:
-      - ../../config/infrastructure/npm/data:/data
-      - ../../config/infrastructure/npm/letsencrypt:/etc/letsencrypt
+      - ../config/infrastructure/npm/data:/data
+      - ../config/infrastructure/npm/letsencrypt:/etc/letsencrypt
 
     healthcheck:
       test: ["CMD","wget","-q","--spider","http://localhost:81"]
@@ -101,7 +101,7 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ../../config/infrastructure/portainer/data:/data
+      - ../config/infrastructure/portainer/data:/data
 
     healthcheck:
       test: ["CMD","wget","--no-check-certificate","-q","--spider","https://localhost:9443"]
