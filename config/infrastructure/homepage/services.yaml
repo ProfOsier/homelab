@@ -71,6 +71,18 @@
         icon: docker.png
         description: Docker Engine
 
+
+- Security:
+    - NetAlertX:
+        href: http://192.168.1.5:20211
+        icon: mdi-lan
+        description: Network Discovery
+
+    - Greenbone:
+        href: https://192.168.1.5:9392
+        icon: mdi-shield-search
+        description: Vulnerability Scanner
+
 - Monitoring:
 
     - Internet:
