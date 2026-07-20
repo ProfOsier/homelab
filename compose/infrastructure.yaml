@@ -38,6 +38,7 @@ services:
 
     volumes:
       - ../config/infrastructure/homepage:/app/config
+      - ../config/infrastructure/homepage/images:/app/public/images:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
     healthcheck:
