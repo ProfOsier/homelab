@@ -9,7 +9,7 @@ statusStyle: dot
 background:
   image: /images/noc-command-center.png
   blur: sm
-  brightness: 28
+  brightness: 46
 layout:
   Infrastructure:
     style: row
