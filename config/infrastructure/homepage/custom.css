@@ -1,14 +1,188 @@
+/* Osier Command Center: presentation-only overrides for Homepage. */
+:root {
+  --noc-cyan: #47d7ff;
+  --noc-amber: #ffb64c;
+  --noc-green: #62e59c;
+  --noc-ink: rgba(5, 13, 24, 0.72);
+  --noc-line: rgba(120, 216, 255, 0.24);
+}
 
-body{
-background:#111;
+html {
+  background: #050b14;
 }
-.service-card{
-border:1px solid #00ff66;
-box-shadow:0 0 10px rgba(0,255,102,.4);
-backdrop-filter:blur(10px);
-transition:.25s;
+
+body {
+  color: #e7f4ff;
+  background-color: #050b14;
+  background-image:
+    linear-gradient(115deg, rgba(1, 10, 20, 0.88), rgba(3, 11, 23, 0.46)),
+    radial-gradient(circle at 78% 12%, rgba(71, 215, 255, 0.14), transparent 30%);
 }
-.service-card:hover{
-transform:translateY(-4px);
-box-shadow:0 0 18px rgba(0,255,102,.8);
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(93, 210, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(93, 210, 255, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+  animation: noc-grid-drift 28s linear infinite;
+}
+
+#__next,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.noc-command-header,
+.noc-command-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1600px;
+  margin: 0.75rem auto;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid var(--noc-line);
+  border-radius: 0.85rem;
+  background: linear-gradient(120deg, rgba(5, 15, 29, 0.86), rgba(10, 27, 45, 0.58));
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+.noc-eyebrow,
+.noc-footer-label {
+  margin: 0;
+  color: var(--noc-cyan);
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.noc-command-header h1 {
+  margin: 0.18rem 0 0;
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.noc-status-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.noc-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.38rem 0.58rem;
+  border: 1px solid rgba(98, 229, 156, 0.34);
+  border-radius: 999px;
+  color: #c8f9dc;
+  background: rgba(23, 79, 58, 0.28);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.noc-status-chip::before {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--noc-green);
+  box-shadow: 0 0 0.6rem var(--noc-green);
+  content: "";
+  animation: noc-pulse 2.2s ease-in-out infinite;
+}
+
+div[class*="service"] > div,
+div[class*="service-card"],
+.service-card {
+  border-color: var(--noc-line) !important;
+  background: linear-gradient(145deg, rgba(12, 28, 46, 0.82), rgba(8, 17, 31, 0.66)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 14px 26px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px) saturate(130%);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+div[class*="service"] > div:hover,
+div[class*="service-card"]:hover,
+.service-card:hover {
+  border-color: rgba(71, 215, 255, 0.72) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 18px 34px rgba(0, 0, 0, 0.3), 0 0 24px rgba(71, 215, 255, 0.12);
+  transform: translateY(-3px);
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #f2f8ff;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+h2::before {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid var(--noc-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 0.7rem rgba(71, 215, 255, 0.75);
+  content: "";
+}
+
+.noc-command-footer {
+  margin-top: 2rem;
+  color: rgba(219, 239, 255, 0.72);
+  font-size: 0.72rem;
+}
+
+.noc-footer-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+@keyframes noc-pulse {
+  50% { opacity: 0.42; transform: scale(0.76); }
+}
+
+@keyframes noc-grid-drift {
+  to { background-position: 48px 48px; }
+}
+
+@media (max-width: 720px) {
+  .noc-command-header,
+  .noc-command-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-inline: 0.75rem;
+  }
+
+  .noc-status-cluster,
+  .noc-footer-details {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
