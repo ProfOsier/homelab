@@ -1,37 +1,36 @@
+---
 - Infrastructure:
     - OPNsense:
         href: https://opnsense.osier.local
+        description: Edge firewall and routing
         icon: opnsense.png
+        ping: https://opnsense.osier.local
     - Pi-hole:
         href: https://pihole.osier.local
+        description: DNS filtering and resolver telemetry
         icon: pi-hole.png
+        ping: https://pihole.osier.local
         widget:
           type: pihole
           url: https://pihole.osier.local
           key: ${PIHOLE_API_KEY}
     - TrueNAS:
         href: https://truenas.osier.local
+        description: Storage fabric and datasets
         icon: truenas.png
+        ping: https://truenas.osier.local
     - Omada:
         href: https://omada.osier.local
+        description: Wireless and switching control plane
         icon: tp-link.png
-- Containers:
-    - Homepage:
-        href: https://homepage.osier.local
-    - Portainer:
-        href: https://portainer.osier.local
-        widget:
-          type: portainer
-          url: https://portainer.osier.local
-          env: 1
-          key: ${PORTAINER_API_KEY}
-    - Dozzle:
-        href: https://dozzle.osier.local
-    - Nginx Proxy Manager:
-        href: https://proxy.osier.local
+        ping: https://omada.osier.local
+
 - Monitoring:
     - Grafana:
         href: https://grafana.osier.local
+        description: Observability dashboards
+        icon: grafana.png
+        ping: https://grafana.osier.local
         widget:
           type: grafana
           url: https://grafana.osier.local
@@ -39,19 +38,66 @@
           password: ${GRAFANA_PASSWORD}
     - Prometheus:
         href: https://prometheus.osier.local
+        description: Metrics collection and alert queries
+        icon: prometheus.png
+        ping: https://prometheus.osier.local
     - Uptime Kuma:
         href: https://uptime.osier.local
+        description: Availability probes and incident status
+        icon: uptime-kuma.png
+        ping: https://uptime.osier.local
         widget:
           type: uptimekuma
           url: https://uptime.osier.local
           slug: ${UPTIME_KUMA_SLUG}
     - NetAlertX:
         href: https://netalertx.osier.local
+        description: Network discovery and device intelligence
+        icon: netalertx.png
+        ping: https://netalertx.osier.local
+
 - Security:
     - Nessus:
         href: https://nessus.osier.local
+        description: Vulnerability assessment console
+        icon: nessus.png
+        ping: https://nessus.osier.local
+
+- Containers:
+    - Homepage:
+        href: https://homepage.osier.local
+        description: Command center interface
+        icon: homepage.png
+        ping: https://homepage.osier.local
+    - Portainer:
+        href: https://portainer.osier.local
+        description: Container fleet administration
+        icon: portainer.png
+        ping: https://portainer.osier.local
+        widget:
+          type: portainer
+          url: https://portainer.osier.local
+          env: 1
+          key: ${PORTAINER_API_KEY}
+    - Dozzle:
+        href: https://dozzle.osier.local
+        description: Live container log stream
+        icon: dozzle.png
+        ping: https://dozzle.osier.local
+    - Nginx Proxy Manager:
+        href: https://proxy.osier.local
+        description: Reverse proxy and certificate control
+        icon: nginx-proxy-manager.png
+        ping: https://proxy.osier.local
+
 - Applications:
     - Nextcloud:
         href: https://nextcloud.osier.net
+        description: Private file collaboration
+        icon: nextcloud.png
+        ping: https://nextcloud.osier.net
     - Immich:
         href: https://immich.osier.net
+        description: Photo and media archive
+        icon: immich.png
+        ping: https://immich.osier.net

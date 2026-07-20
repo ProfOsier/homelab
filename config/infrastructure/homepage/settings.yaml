@@ -1,12 +1,15 @@
 ---
-title: Osier Homelab
+title: OSIER // COMMAND CENTER
 theme: dark
 color: slate
 headerStyle: boxedWidgets
+hideVersion: true
+showStats: true
+statusStyle: dot
 background:
-  image: /images/background.webp
-  blur: md
-  brightness: 35
+  image: /images/noc-command-center.png
+  blur: sm
+  brightness: 28
 layout:
   Infrastructure:
     style: row
@@ -16,10 +19,10 @@ layout:
     columns: 3
   Security:
     style: row
-    columns: 3
+    columns: 2
   Containers:
     style: row
     columns: 4
   Applications:
     style: row
-    columns: 3
+    columns: 2

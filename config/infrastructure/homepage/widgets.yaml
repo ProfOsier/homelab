@@ -1,10 +1,12 @@
+---
 - search:
     provider: google
+    target: _blank
 - datetime:
     locale: en-US
     format:
       dateStyle: full
-      timeStyle: short
+      timeStyle: medium
 - resources:
     cpu: true
     memory: true
@@ -13,3 +15,4 @@
     label: San Antonio
     latitude: 29.4241
     longitude: -98.4936
+    units: imperial

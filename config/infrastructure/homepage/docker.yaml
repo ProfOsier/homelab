@@ -1,2 +1,4 @@
+---
+# Homepage reads this read-only Docker socket for container-aware service cards.
 my-docker:
   socket: /var/run/docker.sock
