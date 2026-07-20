@@ -1,100 +1,57 @@
-- Network:
-
+- Infrastructure:
     - OPNsense:
-        href: https://192.168.1.1
+        href: https://opnsense.osier.local
         icon: opnsense.png
-        description: Firewall & Router
-
     - Pi-hole:
-        href: http://192.168.1.5:1000/admin
+        href: https://pihole.osier.local
         icon: pi-hole.png
-        description: DNS & Ad Blocking
         widget:
           type: pihole
-          url: http://192.168.1.5:1000
-          version: 6
-          key: BSTkJEwPYlX+KwKkSC3esU1MbaRStpN9BnXroO2muqw=
-          
-    - Omada Controller:
-        href: http://192.168.1.4:8088
-        icon: tp-link.png
-        description: Wireless Controller
-
+          url: https://pihole.osier.local
+          key: ${PIHOLE_API_KEY}
     - TrueNAS:
-        href: http://192.168.1.7
+        href: https://truenas.osier.local
         icon: truenas.png
-        description: Storage Server
-
-- Services:
-
-    - Nextcloud:
-        href: https://nextcloud.osier.local
-        icon: nextcloud.png
-        description: Personal Cloud
-
-    - Nginx Proxy Manager:
-        href: https://proxy.osier.local
-        icon: nginx-proxy-manager.png
-        description: Reverse Proxy
-
+    - Omada:
+        href: https://omada.osier.local
+        icon: tp-link.png
+- Containers:
     - Homepage:
         href: https://homepage.osier.local
-        icon: homepage.png
-        description: Dashboard
-
-    - Uptime Kuma:
-        href: https://uptime.osier.local
-        icon: uptime-kuma.png
-        description: Monitoring
-
-- Docker:
-
     - Portainer:
         href: https://portainer.osier.local
-        icon: portainer.png
-        description: Docker Management
-        server: my-docker
-        container: portainer
-
+        widget:
+          type: portainer
+          url: https://portainer.osier.local
+          env: 1
+          key: ${PORTAINER_API_KEY}
     - Dozzle:
         href: https://dozzle.osier.local
-        icon: dozzle.png
-        description: Live Logs
-        container: dozzle
-
-    - Watchtower:
-        icon: watchtower.png
-        description: Automatic Updates
-        container: watchtower
-
-    - Docker:
-        icon: docker.png
-        description: Docker Engine
-
-
-- Security:
-    - NetAlertX:
-        href: http://192.168.1.5:20211
-        icon: mdi-lan
-        description: Network Discovery
-
-    - Greenbone:
-        href: https://192.168.1.5:9392
-        icon: mdi-shield-search
-        description: Vulnerability Scanner
-
+    - Nginx Proxy Manager:
+        href: https://proxy.osier.local
 - Monitoring:
-
-    - Internet:
-        href: https://www.google.com
-        icon: mdi-web
-
-    - Google Fiber:
-        href: https://fiber.google.com
-        icon: mdi-speedometer
-
-    - Server:
-        icon: mdi-server
-
-    - Network:
-        icon: mdi-lan
+    - Grafana:
+        href: https://grafana.osier.local
+        widget:
+          type: grafana
+          url: https://grafana.osier.local
+          username: ${GRAFANA_USERNAME}
+          password: ${GRAFANA_PASSWORD}
+    - Prometheus:
+        href: https://prometheus.osier.local
+    - Uptime Kuma:
+        href: https://uptime.osier.local
+        widget:
+          type: uptimekuma
+          url: https://uptime.osier.local
+          slug: ${UPTIME_KUMA_SLUG}
+    - NetAlertX:
+        href: https://netalertx.osier.local
+- Security:
+    - Nessus:
+        href: https://nessus.osier.local
+- Applications:
+    - Nextcloud:
+        href: https://nextcloud.osier.net
+    - Immich:
+        href: https://immich.osier.net

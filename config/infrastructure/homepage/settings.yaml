@@ -1,28 +1,25 @@
-title: Osier HomeLab
-
-background:
-  image: https://images.unsplash.com/photo-1518770660439-4636190af475
-  blur: sm
-  saturate: 50
-  brightness: 40
-  opacity: 40
-
+---
+title: Osier Homelab
 theme: dark
 color: slate
-
+headerStyle: boxedWidgets
+background:
+  image: /images/background.webp
+  blur: md
+  brightness: 35
 layout:
-  Network:
+  Infrastructure:
     style: row
-    columns: 4
-
-  Services:
-    style: row
-    columns: 4
-
-  Docker:
-    style: row
-    columns: 4
-
+    columns: 3
   Monitoring:
     style: row
+    columns: 3
+  Security:
+    style: row
+    columns: 3
+  Containers:
+    style: row
     columns: 4
+  Applications:
+    style: row
+    columns: 3

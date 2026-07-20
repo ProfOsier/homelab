@@ -1,0 +1,14 @@
+
+body{
+background:#111;
+}
+.service-card{
+border:1px solid #00ff66;
+box-shadow:0 0 10px rgba(0,255,102,.4);
+backdrop-filter:blur(10px);
+transition:.25s;
+}
+.service-card:hover{
+transform:translateY(-4px);
+box-shadow:0 0 18px rgba(0,255,102,.8);
+}

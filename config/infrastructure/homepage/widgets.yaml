@@ -1,14 +1,15 @@
+- search:
+    provider: google
+- datetime:
+    locale: en-US
+    format:
+      dateStyle: full
+      timeStyle: short
 - resources:
     cpu: true
     memory: true
     disk: /
-
-- search:
-    provider: google
-    target: _blank
-
-- datetime:
-    text_size: xl
-    format:
-      timeStyle: short
-      dateStyle: full
+- openmeteo:
+    label: San Antonio
+    latitude: 29.4241
+    longitude: -98.4936
