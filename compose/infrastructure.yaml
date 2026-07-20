@@ -26,6 +26,10 @@ services:
     env_file:
       - ../.env
 
+    # Resolve private .osier.local service names through the homelab DNS.
+    dns:
+      - ${PIHOLE_IP}
+
     ports:
       - "${HOMEPAGE_PORT}:3000"
 
