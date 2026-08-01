@@ -6,14 +6,15 @@
         icon: opnsense.png
         ping: https://opnsense.osier.local
     - Pi-hole:
-        href: https://pihole.osier.local
+        href: https://pihole.osier.local/admin
         description: DNS filtering and resolver telemetry
         icon: pi-hole.png
-        ping: https://pihole.osier.local
+        ping: https://pihole.osier.local/admin
         widget:
           type: pihole
-          url: https://pihole.osier.local
-          key: ${PIHOLE_API_KEY}
+          url: http://192.168.1.5:1000
+          version: 6
+          key: Casper#1974
     - TrueNAS:
         href: https://truenas.osier.local
         description: Storage fabric and datasets

@@ -23,7 +23,7 @@ services:
       TZ: ${TZ}
 
     volumes:
-      - ../data/netalertx:/data
+      - /mnt/truenas/netalertx:/data
       - /etc/localtime:/etc/localtime:ro
 
     tmpfs:

@@ -37,8 +37,8 @@ services:
       HOMEPAGE_ALLOWED_HOSTS: homepage.osier.local
 
     volumes:
-      - ../config/infrastructure/homepage:/app/config
-      - ../config/infrastructure/homepage/images:/app/public/images:ro
+      - /mnt/truenas/homepage:/app/config
+      - /mnt/truenas/homepage/images:/app/public/images:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
     healthcheck:
@@ -72,8 +72,8 @@ services:
       - "${NPM_ADMIN_PORT}:81"
 
     volumes:
-      - ../config/infrastructure/npm/data:/data
-      - ../config/infrastructure/npm/letsencrypt:/etc/letsencrypt
+      - /mnt/truenas/npm/data:/data
+      - /mnt/truenas/npm/letsencrypt:/etc/letsencrypt
 
     healthcheck:
       disable: true
@@ -103,7 +103,7 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ../config/infrastructure/portainer/data:/data
+      - /mnt/truenas/portainer:/data
 
     healthcheck:
       disable: true
@@ -159,7 +159,8 @@ services:
       - "3001:3001"
 
     volumes:
-      - ../config/infrastructure/uptime-kuma:/app/data
+
+      - /mnt/truenas/uptime-kuma:/app/data
 
     healthcheck:
       disable: true

@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+LIB="$ROOT/scripts/lib"
+PLUGINS="$ROOT/scripts/plugins"
+
+source "$LIB/colors.sh"
+source "$LIB/logging.sh"
+
+VERSION_FILE="$ROOT/VERSION"
+
+if [[ -f "$VERSION_FILE" ]]; then
+    VERSION="$(<"$VERSION_FILE")"
+else
+    VERSION="development"
+fi
+
+CMD="${1:-help}"
+
+shift || true
+
+case "$CMD" in
+
+    doctor)
+        "$PLUGINS/doctor.sh" "$@"
+        ;;
+
+    bootstrap)
+        "$PLUGINS/bootstrap.sh" "$@"
+        ;;
+
+    audit)
+        "$PLUGINS/audit.sh" "$@"
+        ;;
+
+    verify)
+        "$PLUGINS/verify.sh" "$@"
+        ;;
+
+    backup)
+        "$PLUGINS/backup.sh" "$@"
+        ;;
+
+    restore)
+        "$PLUGINS/restore.sh" "$@"
+        ;;
+
+    update)
+        "$PLUGINS/update.sh" "$@"
+        ;;
+
+    cleanup)
+        "$PLUGINS/cleanup.sh" "$@"
+        ;;
+
+    inventory)
+        "$PLUGINS/inventory.sh" "$@"
+        ;;
+
+    report)
+        "$PLUGINS/report.sh" "$@"
+        ;;
+
+    version)
+        echo "Homelab Operations Toolkit v$VERSION"
+        ;;
+
+    help|*)
+        cat <<EOF
+
+=========================================
+ Homelab Operations Toolkit (HOT)
+=========================================
+
+Version: $VERSION
+
+Usage:
+
+    ./homelab <command>
+
+Commands:
+
+    doctor
+    bootstrap
+    audit
+    verify
+    backup
+    restore
+    update
+    cleanup
+    inventory
+    report
+    version
+
+EOF
+        ;;
+esac
