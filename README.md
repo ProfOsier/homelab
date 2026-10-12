@@ -24,7 +24,7 @@ This homelab provides core infrastructure services including:
 * Network storage
 * Wireless networking
 * Containerized applications
-* Monitoring
+* Monitoring and centralized logging with OpenObserve + Alloy
 * Reverse proxy
 * Automation
 * Configuration backups
@@ -167,3 +167,7 @@ Secrets and private credentials are excluded from version control.
 # License
 
 This repository is maintained for personal homelab management and documentation.
+
+## OpenObserve
+
+Centralized logs are available at https://logs.osier.local/. Deployment, ingestion, local credentials, TrueNAS syslog overlap, validation, and backups are documented in [OpenObserve operations](docs/openobserve.md). Nessus has been retired after its trial expired.

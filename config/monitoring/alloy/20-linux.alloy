@@ -1,0 +1,11 @@
+local.file_match "linux" {
+  path_targets = [
+    { __path__ = "/var/log/syslog", job = "syslog", service = "linux" },
+    { __path__ = "/var/log/auth.log", job = "auth", service = "linux" },
+  ]
+}
+
+loki.source.file "linux" {
+  targets = local.file_match.linux.targets
+  forward_to = [loki.write.default.receiver]
+}

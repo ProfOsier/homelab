@@ -1,0 +1,10 @@
+// Shared writer for the existing source components.
+loki.write "default" {
+  endpoint {
+    url = sys.env("OPENOBSERVE_LOKI_URL")
+    basic_auth {
+      username = sys.env("OPENOBSERVE_INGEST_USER")
+      password = sys.env("OPENOBSERVE_INGEST_PASSWORD")
+    }
+  }
+}

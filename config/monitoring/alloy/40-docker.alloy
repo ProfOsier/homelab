@@ -1,0 +1,16 @@
+local.file_match "docker" {
+  path_targets = [
+    { __path__ = "/var/lib/docker/containers/*/*-json.log", job = "docker", service = "containers" },
+  ]
+}
+
+loki.process "docker" {
+  stage.docker {}
+  forward_to = [loki.write.default.receiver]
+}
+
+loki.source.file "docker" {
+  targets = local.file_match.docker.targets
+  tail_from_end = true
+  forward_to = [loki.process.docker.receiver]
+}
