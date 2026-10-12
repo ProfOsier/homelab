@@ -17,36 +17,45 @@
         icon: tp-link.png
 - Containers:
     - Homepage:
+        server: my-docker
+        container: homepage
+        showStats: true
         href: https://homepage.osier.local
     - Portainer:
+        server: my-docker
+        container: portainer
+        showStats: true
         href: https://portainer.osier.local
         widget:
           type: portainer
           url: https://portainer.osier.local
-          env: 1
-          key: ${PORTAINER_API_KEY}
+          env: 3
+          key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}"
     - Dozzle:
+        server: my-docker
+        container: dozzle
+        showStats: true
         href: https://dozzle.osier.local
     - Nginx Proxy Manager:
+        server: my-docker
+        container: npm
+        showStats: true
         href: https://proxy.osier.local
 - Monitoring:
-    - Grafana:
-        href: https://grafana.osier.local
-        widget:
-          type: grafana
-          url: https://grafana.osier.local
-          username: ${GRAFANA_USERNAME}
-          password: ${GRAFANA_PASSWORD}
+    - OpenObserve:
+        server: my-docker
+        container: openobserve
+        showStats: true
+        href: https://logs.osier.local/
+        description: Centralized logs and observability
+        icon: mdi-text-box-search-outline
     - Prometheus:
         href: https://prometheus.osier.local
     - Uptime Kuma:
+        server: my-docker
+        container: uptime-kuma
+        showStats: true
         href: https://uptime.osier.local
-        widget:
-          type: uptimekuma
-          url: https://uptime.osier.local
-          slug: ${UPTIME_KUMA_SLUG}
-    - NetAlertX:
-        href: https://netalertx.osier.local
 - Security:
     - Nessus:
         href: https://nessus.osier.local
