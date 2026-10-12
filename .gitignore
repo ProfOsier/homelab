@@ -80,3 +80,8 @@ config/**/logs/
 
 .DS_Store
 Thumbs.db
+
+# OpenObserve runtime data and local collector backups
+config/monitoring/openobserve/
+config/monitoring/alloy/*.bak
+config/monitoring/alloy/*.backup

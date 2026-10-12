@@ -171,11 +171,15 @@ Purpose:
 
 # Monitoring
 
-Planned services:
+Current centralized logging:
 
-* Grafana
-* Prometheus
-* Uptime Kuma
+* OpenObserve: https://logs.osier.local/
+* Alloy: Ubuntu/Docker log collection, OPNsense UDP 1514, and Omada UDP 1515
+* Uptime Kuma: availability monitoring
+
+Prometheus/Grafana/Loki definitions remain as existing infrastructure; this update does not stop or delete them. See [OpenObserve operations](openobserve.md) before deploying changes.
+
+Nessus is retired after trial expiration and removed from Homepage. Existing scan data is retained.
 
 ---
 
@@ -225,10 +229,8 @@ Internet
 Planned additions:
 
 * Homepage Dashboard
-* Grafana
-* Prometheus
-* Loki
-* Uptime Kuma
+* Additional OpenObserve dashboards and alerts
+* Prometheus metrics, where needed
 * NetBox
 * Vaultwarden
 * Gitea (optional)

@@ -1,0 +1,9 @@
+loki.source.syslog "omada" {
+  listener {
+    address = "0.0.0.0:1515"
+    protocol = "udp"
+    syslog_format = "raw"
+    labels = { job = "omada", service = "network", source = "omada" }
+  }
+  forward_to = [loki.write.default.receiver]
+}

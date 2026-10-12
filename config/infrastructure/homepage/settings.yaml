@@ -5,7 +5,6 @@ theme: dark
 color: slate
 headerStyle: boxedWidgets
 hideVersion: true
-showStats: true
 statusStyle: dot
 background:
   image: /images/noc-command-center.png

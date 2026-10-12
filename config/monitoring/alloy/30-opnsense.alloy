@@ -1,0 +1,9 @@
+// Keep until the TrueNAS opnsense-syslog forwarding path is verified.
+loki.source.syslog "opnsense" {
+  listener {
+    address = "0.0.0.0:1514"
+    protocol = "udp"
+    labels = { job = "opnsense", service = "firewall", host = "opnsense" }
+  }
+  forward_to = [loki.write.default.receiver]
+}

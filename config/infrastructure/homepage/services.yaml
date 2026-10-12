@@ -49,13 +49,6 @@
         icon: uptime-kuma.png
         siteMonitor: https://uptime.osier.local
 
-- Security:
-    - Nessus:
-        href: https://nessus.osier.local
-        description: Vulnerability assessment console
-        icon: nessus.png
-        siteMonitor: https://nessus.osier.local
-
 - Containers:
     - Homepage:
         server: my-docker

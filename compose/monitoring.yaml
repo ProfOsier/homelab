@@ -14,6 +14,42 @@ x-defaults: &defaults
 
 services:
 
+  # OpenObserve is already deployed; preserve its existing /data layout and credentials.
+  openobserve:
+    <<: *defaults
+    image: public.ecr.aws/zinclabs/openobserve:latest
+    container_name: openobserve
+    environment:
+      ZO_ROOT_USER_EMAIL: ${ZO_ROOT_USER_EMAIL:?Set the existing OpenObserve email in .env}
+      ZO_ROOT_USER_PASSWORD: ${ZO_ROOT_USER_PASSWORD:?Set the existing OpenObserve password in .env}
+    volumes:
+      - ${APPDATA:-/mnt/truenas}/openobserve:/data
+    networks:
+      - monitoring
+      - proxy
+
+  alloy:
+    <<: *defaults
+    image: grafana/alloy:latest
+    container_name: alloy
+    command:
+      - run
+      - --stability.level=experimental
+      - /etc/alloy
+    environment:
+      OPENOBSERVE_LOKI_URL: ${OPENOBSERVE_LOKI_URL:-http://openobserve:5080/api/default/loki/api/v1/push}
+      OPENOBSERVE_INGEST_USER: ${OPENOBSERVE_INGEST_USER:?Set the existing ingestion user in .env}
+      OPENOBSERVE_INGEST_PASSWORD: ${OPENOBSERVE_INGEST_PASSWORD:?Set the existing ingestion password in .env}
+    ports:
+      - "1514:1514/udp"
+      - "1515:1515/udp"
+    volumes:
+      - ../config/monitoring/alloy:/etc/alloy:ro
+      - /var/log:/var/log:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    networks:
+      - monitoring
+
   grafana:
     <<: *defaults
 

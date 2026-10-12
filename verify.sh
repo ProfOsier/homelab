@@ -41,6 +41,9 @@ check "Omada Controller (192.168.1.3)" ping -c1 192.168.1.3
 echo
 echo "Docker"
 
+check "OpenObserve Running" bash -c 'test "$(docker inspect --format "{{.State.Running}}" openobserve)" = true'
+check "OpenObserve HTTPS Health" curl --fail --silent --show-error --max-time 10 https://logs.osier.local/healthz
+
 docker ps --format "table {{.Names}}\t{{.Status}}"
 
 echo
