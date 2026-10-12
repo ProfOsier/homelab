@@ -35,6 +35,7 @@ services:
 
     environment:
       HOMEPAGE_ALLOWED_HOSTS: homepage.osier.local
+      HOMEPAGE_VAR_PORTAINER_API_KEY: ${PORTAINER_API_KEY}
 
     volumes:
       - /mnt/truenas/homepage:/app/config

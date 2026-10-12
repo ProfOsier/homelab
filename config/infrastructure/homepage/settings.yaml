@@ -1,5 +1,6 @@
 ---
 title: OSIER // COMMAND CENTER
+showStats: true
 theme: dark
 color: slate
 headerStyle: boxedWidgets
