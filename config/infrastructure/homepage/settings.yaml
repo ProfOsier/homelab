@@ -1,5 +1,6 @@
 ---
 title: Osier Homelab
+showStats: true
 theme: dark
 color: slate
 headerStyle: boxedWidgets
